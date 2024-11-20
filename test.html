@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      .slider {
+        position: relative;
+        width: 80%;
+        max-width: 1200px;
+        overflow: hidden;
+        /* border: 2px solid #ddd; */
+        border-radius: 10px;
+      }
+
+      .slides {
+        display: flex;
+        gap: 10px; /* Adjust the gap as needed */
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .slides img {
+        width: calc((100% / 4) - 10px); /* Adjust width to account for gap */
+        border-radius: 10px;
+      }
+
+      button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 50%;
+        /* padding: 10px; */
+        width: 40px;
+        height: 40px;
+      }
+
+      button.prev {
+        left: 10px;
+      }
+
+      button.next {
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div class="slides">
+        <img src="images/portfolio-thumb-1.jpg" alt="Image 1" />
+        <img src="images/portfolio-thumb-2.jpg" alt="Image 2" />
+        <img src="images/portfolio-thumb-3.jpg" alt="Image 3" />
+        <img src="images/portfolio-thumb-4.jpg" alt="Image 4" />
+        <img src="images/portfolio-thumb-5.jpg" alt="Image 5" />
+        <img src="images/portfolio-thumb-6.jpg" alt="Image 6" />
+        <img src="images/portfolio-thumb-7.jpg" alt="Image 7" />
+        <img src="images/portfolio-thumb-8.jpg" alt="Image 8" />
+        <img src="images/portfolio-thumb-9.jpg" alt="Image 9" />
+        <img src="images/portfolio-thumb-10.jpg" alt="Image 10" />
+        <img src="images/portfolio-thumb-11.jpg" alt="Image 11" />
+        <img src="images/portfolio-thumb-12.jpg" alt="Image 12" />
+      </div>
+      <button class="prev" onclick="prevSlide()">&#10094;</button>
+      <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <script>
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        const slides = document.querySelector(".slides");
+        const totalSlides = slides.children.length;
+        const slidesToShow = 4;
+        if (index >= totalSlides / slidesToShow) {
+          currentIndex = 0;
+        } else if (index < 0) {
+          currentIndex = Math.ceil(totalSlides / slidesToShow) - 1;
+        } else {
+          currentIndex = index;
+        }
+        slides.style.transform = `translateX(-${
+          (currentIndex * 100) / slidesToShow
+        }%)`;
+      }
+
+      function nextSlide() {
+        showSlide(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        showSlide(currentIndex - 1);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        showSlide(currentIndex);
+      });
+    </script>
+  </body>
+</html>
