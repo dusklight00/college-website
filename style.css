@@ -3109,3 +3109,66 @@ footer#footer {
   font-size: 1.5em;
   cursor: pointer;
 }
+
+#hall-of-fame .slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+#hall-of-fame .slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+#hall-of-fame .slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+#hall-of-fame .slide-content {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#hall-of-fame .slide-content h1 {
+  color: #fff;
+  font-size: 3em;
+  margin: 0;
+}
+
+#hall-of-fame .slide-content p {
+  font-size: 1.5em;
+}
+
+#hall-of-fame .nav-button {
+  position: absolute;
+  bottom: 15%;
+  background-color: rgba(255, 180, 4, 0.738);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+
+#hall-of-fame .prev {
+  left: 10%;
+}
+
+#hall-of-fame .next {
+  left: 13%;
+}
